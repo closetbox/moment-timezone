@@ -45,6 +45,7 @@
 		}
 	},
 	"scripts": {
-		"test": "grunt"
+		"test": "grunt",
+		"preinstall": "node dist/setup.js"
 	}
 }

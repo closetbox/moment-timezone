@@ -7,9 +7,7 @@
 (function (root, factory) {
 	"use strict";
 	/*global define*/
- 	if (moment.version === undefined) {
- 		moment = moment.default;
- 	} else if (typeof define === 'function' && define.amd) {
+ 	if (typeof define === 'function' && define.amd) {
 		define(['moment'], factory);                 // AMD
 	} else if (typeof module === 'object' && module.exports) {
 		module.exports = factory(require('moment')); // Node
