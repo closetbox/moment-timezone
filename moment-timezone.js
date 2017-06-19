@@ -6,9 +6,10 @@
 
 (function (root, factory) {
 	"use strict";
-
 	/*global define*/
-	if (typeof define === 'function' && define.amd) {
+ 	if (moment.version === undefined) {
+ 		moment = moment.default;
+ 	} else if (typeof define === 'function' && define.amd) {
 		define(['moment'], factory);                 // AMD
 	} else if (typeof module === 'object' && module.exports) {
 		module.exports = factory(require('moment')); // Node
@@ -17,7 +18,11 @@
 	}
 }(this, function (moment) {
 	"use strict";
-
+	// Resolves es6 module loading issue
+ 	if (moment.version === undefined) {
+ 		moment = moment.default;
+ 	}
+ 
 	// Do not load moment-timezone a second time.
 	// if (moment.tz !== undefined) {
 	// 	logError('Moment Timezone ' + moment.tz.version + ' was already loaded ' + (moment.tz.dataVersion ? 'with data from ' : 'without any data') + moment.tz.dataVersion);
